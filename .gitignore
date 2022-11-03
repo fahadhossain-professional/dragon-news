@@ -1,0 +1,24 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+dragon-news-client-side/node_modules/
+dragon-news-client-side/src/firebase/
+dragon-news-client-side/.pnp/
+dragon-news-client-side/.pnp.js
+
+# testing
+dragon-news-client-side/coverage/
+
+# production
+dragon-news-client-side/build/
+
+# misc
+dragon-news-client-side/.DS_Store
+dragon-news-client-side/.env.local
+dragon-news-client-side/.env.development.local
+dragon-news-client-side/.env.test.local
+dragon-news-client-side/.env.production.local
+
+dragon-news-client-side/npm-debug.log*
+dragon-news-client-side/yarn-debug.log*
+dragon-news-client-side/yarn-error.log*
