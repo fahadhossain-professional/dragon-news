@@ -8,7 +8,7 @@ const Main = () => {
   return (
     <>
       <Header />
-      <div className="container">
+      <div className="container mt-4">
         <div className="row">
           <div className="col-lg-2">
             <LeftSideNav />
