@@ -18,6 +18,7 @@ const SignUp = () => {
       // Signed in
         const { user } = userCredential;
         console.log(user);
+        form.reset();
       })
       .catch((error) => {
         const errorMessage = error.message;

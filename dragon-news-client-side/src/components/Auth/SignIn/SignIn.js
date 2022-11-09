@@ -1,9 +1,10 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const SignIn = () => {
   const { signInEmailPasswordBaseUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSignInform = (event) => {
     event.preventDefault();
@@ -15,6 +16,8 @@ const SignIn = () => {
       .then((userCredential) => {
       // Signed in
         const { user } = userCredential;
+        form.reset();
+        navigate('/');
         console.log(user);
       })
       .catch((error) => {
