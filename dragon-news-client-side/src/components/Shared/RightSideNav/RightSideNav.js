@@ -1,13 +1,32 @@
+import { GoogleAuthProvider } from 'firebase/auth';
+import { useContext } from 'react';
 import {
   FaFacebook,
   FaGithub, FaGoogle, FaInstagram, FaTwitch, FaTwitter, FaWhatsapp
 } from 'react-icons/fa';
+import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import BrandCarousel from '../BrandCarousel/BrandCarousel';
 
 const RightSideNav = () => {
+  const { loginGoogleProvider } = useContext(AuthContext);
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    loginGoogleProvider(googleProvider)
+      .then((result) => {
+        const { user } = result;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  };
+
   return (
     <div>
-      <button type="button" className="btn btn-outline-primary mb-2 w-100">
+      <button onClick={handleGoogleSignIn} type="button" className="btn btn-outline-primary mb-2 w-100">
         <FaGoogle />
         {' '}
         Sign in with Google

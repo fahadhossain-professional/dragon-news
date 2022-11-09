@@ -1,16 +1,17 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 import { BsFillSaveFill } from 'react-icons/bs';
 import { FaEye, FaShareSquare, FaStar } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import './NewsCard.css';
 
-const News = () => {
-  const news = useLoaderData();
+const NewsCard = ({ news }) => {
   const {
-    title, rating, total_view, image_url, details, author
+    title, rating, total_view, image_url, details, author, _id
   } = news;
 
   return (
-    <div className="card text-center">
+    <div className="card text-center mb-4">
       <div className="card-header">
         <div className="d-flex justify-content-between align-items-center">
           <div className="auth-info d-flex align-items-center">
@@ -27,9 +28,14 @@ const News = () => {
         </div>
       </div>
       <div className="card-body">
+        <h5 className="card-title">{title}</h5>
         <img src={image_url} className="card-img" alt="" />
-        <h5 className="card-title my-4">{title}</h5>
-        <p className="card-text">{details}</p>
+        {details.length > 250 ? (
+          <p className="card-text">
+            {`${details.slice(0, 250)}...`}
+            <Link to={`/news/${_id}`}>More</Link>
+          </p>
+        ) : <p className="card-text">{details}</p>}
       </div>
       <div className="card-footer text-muted d-flex justify-content-between align-items-center">
         <div className="d-flex align-items-center">
@@ -45,4 +51,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default NewsCard;

@@ -12,9 +12,6 @@ const LeftSideNav = () => {
 
   return (
     <div>
-      <h2 className="text-center">
-        All Category
-      </h2>
       <ul className="list-group">
         {categories.map(
           (category) => {

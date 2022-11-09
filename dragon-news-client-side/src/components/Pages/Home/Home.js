@@ -1,8 +1,15 @@
+import { useLoaderData } from 'react-router-dom';
+import NewsCard from '../../Shared/NewsCard/NewsCard';
+
 const Home = () => {
+  const allNews = useLoaderData();
+
   return (
-    <div>
-      <h2 className="text-center">This is Home</h2>
-    </div>
+    <>
+      {allNews.map((news) => {
+        return <NewsCard key={news._id} news={news} />;
+      })}
+    </>
   );
 };
 
